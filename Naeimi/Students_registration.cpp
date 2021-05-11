@@ -1,11 +1,12 @@
 //
 // Created by athena on 8/5/21.
-// Registration only
+//
 #include <iostream>
 #include <vector>
 using namespace std;
 class student{
     string name_,lastname_,student_number_,password_;
+    vector<string>subjects;
 public:
     student(string name,string lastname,string student_number,string password):name_(name),lastname_(lastname),student_number_(student_number),password_(password){
 
@@ -22,8 +23,20 @@ public:
     string return_lastname()const{
         return lastname_;
     }
+    //string return_subjects()const{
+    //    return subjects;
+   // }
 };
-
+vector<string>subjects_list(){
+    vector<string> subject_;
+    subject_.push_back("Advanced Programming");
+    subject_.push_back("Calculus2");
+    subject_.push_back("Basic Programming");
+    subject_.push_back("Physics2");
+    subject_.push_back("Physics1");
+    subject_.push_back("Calculus1");
+    return subject_;
+}
 int main(){
     char command;
     vector <student> students;
@@ -66,17 +79,25 @@ int main(){
                     student_number == students[i].return_student_number() &&
                     password == students[i].return_password()) {
                     cout << "Login successfully\n";
+                    //subjects
+                    //
+                    //
+                    
+                    cout << "1)Sign up \t\t2)Sign in\t\t 3)Exit \n";
                 }
                 else if (password != students[i].return_password() ||
                          student_number != students[i].return_student_number() ||
-                         lastname != students[i].return_lastname() || name != students[i].return_name()) {
+                         lastname != students[i].return_lastname() || name != students[i].return_name() && (i!=students.size()-1) ){
+                    continue;
+                }
+                else    {
                     cout << "INVALID DATA\n";
                     cout << "1)Sign up \t\t2)Sign in\t\t 3)Exit \n";
                     break;
                 }
             }
         } else if (command == '3') {
-            cout << "Programm is closing\n";
+            cout << "Program is closing\n";
             break;
         }
     }
