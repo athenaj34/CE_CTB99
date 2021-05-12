@@ -6,8 +6,8 @@
 using namespace std;
 class student{
     string name_,lastname_,student_number_,password_;
-public:
     vector<string>subjects;
+public:
     student(string name,string lastname,string student_number,string password):name_(name),lastname_(lastname),student_number_(student_number),password_(password){
 
     }
@@ -22,6 +22,9 @@ public:
     }
     string return_lastname()const{
         return lastname_;
+    }
+    vector<string> return_subjects(){
+        return subjects;
     }
 };
 vector<string>subjects_list(){
@@ -75,11 +78,12 @@ int main(){
                     student_number == students[i].return_student_number() &&
                     password == students[i].return_password()) {
                     cout << "****Login successfully****\n";
-                    if(students[i].subjects.size()==0) {
+                    vector<string> sub =students[i].return_subjects();
+                    vector<string> sub_list=subjects_list();
+                    if(sub.size()==0) {
                         cout << "Choose at least 3 subjects from below:(after each number press enter)\n";
-                        vector<string> sub = subjects_list();
-                        for (int i = 0; i < sub.size(); ++i)
-                            cout << i + 1 << ") " << sub[i] << "   ";
+                        for (int i = 0; i < sub_list.size(); ++i)
+                            cout << i + 1 << ") " << sub_list[i] << "   ";
                         cout << endl;
                         int k = 0;
                         int num;
@@ -87,7 +91,7 @@ int main(){
                         while (true) {
                             k++;
                             cin >> num;
-                            students[i].subjects.push_back(sub[num - 1]);
+                            sub.push_back(sub_list[num - 1]);
                             if (k >= 3) {
                                 cout << "Type \'e' to exit \n or press any key to continue then enter subject number\n";
                                 cin >> esc;
@@ -100,8 +104,8 @@ int main(){
                     }
                     cout << "------------------------------------\n";
                     cout << "Your subjects are:\n";
-                    for(int f=0; f<students[i].subjects.size();f++)
-                        cout << "  " << students[i].subjects[f] ;
+                    for(int f=0; f<sub.size();f++)
+                        cout << "  " << sub[f] ;
                     cout << endl;
                     cout << "------------------------------------\n";
                 }
