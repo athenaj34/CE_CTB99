@@ -1,11 +1,12 @@
 //
 // Created by athena on 8/5/21.
-//
+// +taking courses 
 #include <iostream>
 #include <vector>
 using namespace std;
 class student{
     string name_,lastname_,student_number_,password_;
+public:
     vector<string>subjects;
 public:
     student(string name,string lastname,string student_number,string password):name_(name),lastname_(lastname),student_number_(student_number),password_(password){
@@ -23,9 +24,6 @@ public:
     string return_lastname()const{
         return lastname_;
     }
-    //string return_subjects()const{
-    //    return subjects;
-   // }
 };
 vector<string>subjects_list(){
     vector<string> subject_;
@@ -78,11 +76,35 @@ int main(){
                 if (name == students[i].return_name() && lastname == students[i].return_lastname() &&
                     student_number == students[i].return_student_number() &&
                     password == students[i].return_password()) {
-                    cout << "Login successfully\n";
-                    //subjects
-                    //
-                    //
-                    
+                    cout << "****Login successfully****\n";
+                    if(students[i].subjects.size()==0) {
+                        cout << "Choose at least 3 subjects from below:(after each number press enter)\n";
+                        vector<string> sub = subjects_list();
+                        for (int i = 0; i < sub.size(); ++i)
+                            cout << i + 1 << ") " << sub[i] << "   ";
+                        cout << endl;
+                        int k = 0;
+                        int num;
+                        char esc;
+                        while (true) {
+                            k++;
+                            cin >> num;
+                            students[i].subjects.push_back(sub[num - 1]);
+                            if (k >= 3) {
+                                cout << "Type \'e' to exit \n or press any key to continue then enter subject number\n";
+                                cin >> esc;
+                                if (esc=='e' || k>=6)
+                                    break;
+                                else if(esc=='\n')
+                                    continue;
+                            }
+                        }
+                    }
+                    cout << "------------------------------------\n";
+                    cout << "Your subjects are:\n";
+                    for(int f=0; f<students[i].subjects.size();f++)
+                        cout << "  " << students[i].subjects[f] ;
+                    cout << endl;
                     cout << "1)Sign up \t\t2)Sign in\t\t 3)Exit \n";
                 }
                 else if (password != students[i].return_password() ||
