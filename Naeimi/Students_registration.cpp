@@ -1,6 +1,6 @@
 //
 // Created by athena on 8/5/21.
-// +taking courses 
+// + taking courses
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -8,7 +8,6 @@ class student{
     string name_,lastname_,student_number_,password_;
 public:
     vector<string>subjects;
-public:
     student(string name,string lastname,string student_number,string password):name_(name),lastname_(lastname),student_number_(student_number),password_(password){
 
     }
@@ -58,7 +57,6 @@ int main(){
             getline(cin, password, '\n');
             students.push_back(student(name, lastname, student_number, password));
             cout << "Your account has been created successfully\n";
-            cout << "1)Sign up \t\t2)Sign in\t\t 3)Exit \n";
         } else if (command == '2') { //checking obj
             cout << "Enter your name: ";
             cin.get();
@@ -105,7 +103,7 @@ int main(){
                     for(int f=0; f<students[i].subjects.size();f++)
                         cout << "  " << students[i].subjects[f] ;
                     cout << endl;
-                    cout << "1)Sign up \t\t2)Sign in\t\t 3)Exit \n";
+                    cout << "------------------------------------\n";
                 }
                 else if (password != students[i].return_password() ||
                          student_number != students[i].return_student_number() ||
@@ -114,7 +112,6 @@ int main(){
                 }
                 else    {
                     cout << "INVALID DATA\n";
-                    cout << "1)Sign up \t\t2)Sign in\t\t 3)Exit \n";
                     break;
                 }
             }
@@ -122,6 +119,7 @@ int main(){
             cout << "Program is closing\n";
             break;
         }
+        cout << "1)Sign up \t\t2)Sign in\t\t 3)Exit \n";
     }
     return 0;
 }
