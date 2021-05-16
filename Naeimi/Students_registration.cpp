@@ -1,6 +1,6 @@
 //
 // Created by athena on 8/5/21.
-// +taking courses +course removing
+// +taking courses +course removing +editing after choosing
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -113,9 +113,28 @@ int main(){
                     cout << "**************************\n**************************\n**************************\n";
                     auto& sub =students[i].return_subjects();
                     char esc;
-                    if(sub.empty()) {
+                    if(!sub.empty()){
+                        cout << "------------------------------------\n";
+                        cout << "Your subjects are:\n";
+                        for(int f=0; f<sub.size();f++)
+                            cout << "  " << sub[f].return_Sname() << " // " << sub[f].return_STname() <<" // "<< sub[f].return_day() << " // " << sub[f].return_time_h() << ":" << sub[f].return_time_m() << "\t|" << sub[f].return_coefficient() << endl ;
+                        cout << endl;
+                        cout << "------------------------------------\n";   //EDITION AFTER CHOOSING COURSES
+                        //
+                        cout << "Type 'e' to exit\nType 'u' to enter to editing menu\n";
+                        cin >> esc;
+                        if(esc=='u')
+                            goto course_selection;
+                        else if(esc=='e')
+                            break;
+
+                    }
+
+                    else{
+                        course_selection:
                         for (int i = 0; i < subjects.size(); ++i)
                             cout << i + 1 << ") " << subjects[i].return_Sname() << " // " << subjects[i].return_STname() <<" // " << subjects[i].return_day() << " // " << subjects[i].return_time_h() << ":" << subjects[i].return_time_m() << "\t|" << subjects[i].return_coefficient() << endl ;
+
                         cout << "Choose courses from the courses list:(after each number press enter)\n";
                         cout << endl;
                         int k = 0;
@@ -131,7 +150,7 @@ int main(){
                                 starting_menu:
                                 cout << "  coefficient till now: " << coef << endl;
                                 cout
-                                        << "Type \'e' to exit \nType \'u' to edit your choices\npress any key to continue then enter course number\n";
+                                        << "Type 'e' to exit \nType 'u' to edit your choices\npress any key to continue then enter course number\n";
                                 cin >> esc;
                                 if (esc == 'e' || k >= subjects.size())
                                     break;
@@ -157,7 +176,7 @@ int main(){
                                         cout << "    Successfully deleted\n";
                                         cout << "------------------------------------\n";
                                         again:
-                                        cout << "Type \'e' to exit editing menu \nType \'u' to continue editing \n";
+                                        cout << "Type 'e' to exit editing menu \nType 'u' to continue editing \n";
                                         cin >> esc;
                                         if (esc == 'e')
                                             goto starting_menu;
@@ -174,7 +193,7 @@ int main(){
                             }
                             if(coef>20){
                                 cout << "you've reached the limit\n";
-                                cout << "Type \'e' to exit\nType \'u' to enter to editing menu\n";
+                                cout << "Type 'e' to exit\nType 'u' to enter to editing menu\n";
                                 cin >> esc;
                                 if(esc=='u')
                                     goto editing_menu;
@@ -184,12 +203,7 @@ int main(){
 
                         }
                     }
-                    cout << "------------------------------------\n";
-                    cout << "Your subjects are:\n";
-                    for(int f=0; f<sub.size();f++)
-                        cout << "  " << sub[f].return_Sname() << " // " << sub[f].return_STname() <<" // "<< sub[f].return_day() << " // " << sub[f].return_time_h() << ":" << sub[f].return_time_m() << "\t|" << sub[f].return_coefficient() << endl ;
-                    cout << endl;
-                    cout << "------------------------------------\n";   //EDITION AFTER CHOOSING COURSES
+
                 }
                 else if ((password != students[i].return_password() ||
                          student_number != students[i].return_student_number() ||
