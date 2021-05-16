@@ -1,6 +1,6 @@
 //
 // Created by athena on 8/5/21.
-// +taking courses +course removation
+// +taking courses +course removing
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -49,7 +49,7 @@ public:
     string return_lastname()const{
         return lastname_;
     }
-    vector<subject> return_subjects(){
+    vector<subject>& return_subjects(){
         return subjects;
     }
 };
@@ -78,7 +78,6 @@ int main(){
     string name, lastname, student_number, password;
     while(cin >> command) { ;
         if (command == '1') {
-
             cout << "Enter your name: ";
             cin.get();
             getline(cin, name, '\n');
@@ -112,7 +111,8 @@ int main(){
                     password == students[i].return_password()) {
                     cout << "****Login successfully****\n";
                     cout << "**************************\n**************************\n**************************\n";
-                    vector<subject> sub =students[i].return_subjects();
+                    auto& sub =students[i].return_subjects();
+                    char esc;
                     if(sub.empty()) {
                         for (int i = 0; i < subjects.size(); ++i)
                             cout << i + 1 << ") " << subjects[i].return_Sname() << " // " << subjects[i].return_STname() <<" // " << subjects[i].return_day() << " // " << subjects[i].return_time_h() << ":" << subjects[i].return_time_m() << "\t|" << subjects[i].return_coefficient() << endl ;
@@ -121,7 +121,6 @@ int main(){
                         int k = 0;
                         int num;
                         int coef=0;
-                        char esc;
                         while (true) {
                             if (coef <=20) {
                                 cout << "Enter the course number:\n";
@@ -131,7 +130,8 @@ int main(){
                                 coef += subjects[num - 1].return_coefficient();
                                 starting_menu:
                                 cout << "  coefficient till now: " << coef << endl;
-                                cout << "Type \'e' to exit \nType \'u' to edit your choices\npress any key to continue then enter course number\n";
+                                cout
+                                        << "Type \'e' to exit \nType \'u' to edit your choices\npress any key to continue then enter course number\n";
                                 cin >> esc;
                                 if (esc == 'e' || k >= subjects.size())
                                     break;
@@ -168,8 +168,7 @@ int main(){
                                             goto again;
                                         }
                                     }
-                                }
-                                else
+                                } else
                                     continue;
 
                             }
@@ -182,6 +181,7 @@ int main(){
                                 else if(esc=='e')
                                     break;
                             }
+
                         }
                     }
                     cout << "------------------------------------\n";
@@ -189,15 +189,14 @@ int main(){
                     for(int f=0; f<sub.size();f++)
                         cout << "  " << sub[f].return_Sname() << " // " << sub[f].return_STname() <<" // "<< sub[f].return_day() << " // " << sub[f].return_time_h() << ":" << sub[f].return_time_m() << "\t|" << sub[f].return_coefficient() << endl ;
                     cout << endl;
-                    cout << "------------------------------------\n";
+                    cout << "------------------------------------\n";   //EDITION AFTER CHOOSING COURSES
                 }
                 else if ((password != students[i].return_password() ||
                          student_number != students[i].return_student_number() ||
                          lastname != students[i].return_lastname() || name != students[i].return_name()) && (i!=students.size()-1) ){
-                    cout << i << endl << students.size()-1 << endl;
                     continue;
                 }
-                else    {
+                else{
                     cout << "INVALID DATA\n";
                     break;
                 }
