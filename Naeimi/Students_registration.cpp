@@ -1,6 +1,6 @@
 //
 // Created by athena on 8/5/21.
-// 
+//
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -128,12 +128,15 @@ int main(){
                         cout << endl;
                         cout << "------------------------------------\n";   //EDITION AFTER CHOOSING COURSES
                         //
-                        cout << "Type 'e' to exit\nType 'u' to enter to editing menu\n";
+                        cout << "Type 'e' to exit\nType 't' to take courses\n";
+                                //Type 'u' to enter editing menu\n";
                         cin >> esc;
-                        if(esc=='u')
+                        if(esc=='t')
                             goto course_selection;
                         else if(esc=='e')
                             break;
+                     //   else if(esc=='u')
+                     //       goto
 
                     }
 
