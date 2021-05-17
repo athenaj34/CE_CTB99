@@ -1,6 +1,6 @@
 //
 // Created by athena on 8/5/21.
-// +taking courses +course removing +editing after choosing
+// 
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -26,12 +26,13 @@ public:
     int return_time_m()const{
         return time_min_;
     }
-    int return_coefficient()const{
+    int return_coefficient(){
         return coefficient_;
     }
 };
 class student{
     string name_,lastname_,student_number_,password_;
+    int coef_=0;
     vector<subject>subjects;
 public:
     student(string name,string lastname,string student_number,string password):name_(name),lastname_(lastname),student_number_(student_number),password_(password){
@@ -51,6 +52,12 @@ public:
     }
     vector<subject>& return_subjects(){
         return subjects;
+    }
+    int& return_coef(){
+        return coef_;
+    }
+    void assign_coef(int coef){
+        coef_=coef;
     }
 };
 
@@ -139,7 +146,7 @@ int main(){
                         cout << endl;
                         int k = 0;
                         int num;
-                        int coef=0;
+                        int coef=students[i].return_coef();
                         while (true) {
                             if (coef <=20) {
                                 cout << "Enter the course number:\n";
@@ -173,6 +180,7 @@ int main(){
                                              << sub[num - 1].return_time_h() << ":" << sub[num - 1].return_time_m()
                                              << "\t|" << sub[num - 1].return_coefficient();
                                         sub.erase(sub.begin() + (num - 1));
+                                        coef-=subjects[num - 1].return_coefficient();
                                         cout << "    Successfully deleted\n";
                                         cout << "------------------------------------\n";
                                         again:
@@ -202,6 +210,7 @@ int main(){
                             }
 
                         }
+                        students[i].assign_coef(coef);
                     }
 
                 }
