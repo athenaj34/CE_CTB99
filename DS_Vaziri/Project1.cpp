@@ -335,8 +335,8 @@ void hanoigraph(){
 	plot("set xtics 0,1,40");
 	plot("set ytics 0,15000,600000");
 	plot("plot 'hanoi.txt' smooth unique w linespoints pt 7") ;
-	plot("set term png size 1200,1000 medium");
-	plot("set output 'hanoi.png'");
+	plot("set term pdf size 1200,1000 ");
+	plot("set output 'hanoi.pdf'");
 	plot("replot");
 	plot("set term pop");
 	usleep(5);
@@ -358,8 +358,8 @@ void bSearchgraph(){
 	plot("set logscale x");
 	plot("set logscale y");
 	plot("plot 'bSearch.txt' smooth unique w linespoints pt 7") ;
-	plot("set term png size 1200,1000 medium");
-	plot("set output 'bSearch.png'");
+	plot("set term pdf size 1200,1000 ");
+	plot("set output 'bSearch.pdf'");
 	plot("replot");
 	plot("set term pop");
 	usleep(5);
@@ -381,8 +381,8 @@ void bubblegraph(){
 	plot("set xtics 0,200");
 	plot("set ytics 0,50");
 	plot("plot 'bubble.txt' smooth unique w linespoints pt 7") ;
-	plot("set term png size 1200,1000 medium");
-	plot("set output 'bubble.png'");
+	plot("set term pdf size 1200,1000 ");
+	plot("set output 'bubble.pdf'");
 	plot("replot");
 	plot("set term pop");
 	usleep(5);
@@ -404,8 +404,8 @@ void lineargraph(){
 	plot("set xtics 0,10000");
 	plot("set logscale y");
 	plot("plot 'linear.txt' smooth unique w linespoints pt 7") ;
-	plot("set term png size 1200,1000 medium");
-	plot("set output 'linearSearch.png'");
+	plot("set term pdf size 1200,1000 ");
+	plot("set output 'linearSearch.pdf'");
 	plot("replot");
 	plot("set term pop");
 	usleep(5);
@@ -427,8 +427,8 @@ void quickgraph(){
 	plot("set logscale x");
 	plot("set logscale y");
 	plot("plot 'quick.txt' smooth unique w linespoints pt 7") ;
-	plot("set term png size 1200,1000 medium");
-	plot("set output 'quickSort.png'");
+	plot("set term pdf size 1200,1000 ");
+	plot("set output 'quickSort.pdf'");
 	plot("replot");
 	plot("set term pop");
 	usleep(5);
@@ -449,8 +449,8 @@ void shellgraph(){
 	plot("set ylabel \"Execution time (ms)\" font \",15\"");
 	plot("set logscale y");
 	plot("plot 'shell.txt' smooth unique w linespoints pt 7") ;
-	plot("set term png size 1200,1000 medium");
-	plot("set output 'shellSort.png'");
+	plot("set term pdf size 1200,1000 ");
+	plot("set output 'shellSort.pdf'");
 	plot("replot");
 	plot("set term pop");
 	usleep(5);
@@ -473,8 +473,8 @@ void Allgraph(){
 	plot("set logscale y");
 	plot("set logscale x");
 	plot("plot 'shell.txt' smooth unique w linespoints pt 7 ,'hanoi.txt' smooth unique w linespoints pt 7,'bSearch.txt' smooth unique w linespoints pt 7,'bubble.txt' smooth unique w linespoints pt 7,'linear.txt' smooth unique w linespoints pt 7,'quick.txt' smooth unique w linespoints pt 7") ;
-	plot("set term png size 1200,1000 medium");
-	plot("set output 'Graphs.png'");
+	plot("set term pdf size 1200,1000 ");
+	plot("set output 'Graphs.pdf'");
 	plot("replot");
 	plot("set term pop");
 	usleep(5);
