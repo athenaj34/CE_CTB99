@@ -1,4 +1,3 @@
-//selection is log!!!
 #include <iostream>
 #include <vector>
 #include <ctime>
@@ -166,7 +165,6 @@ void linear_exe(){
 	int size = Search;
 	linearFile << size << " ";
 	int key = rand()%200;
-	// cout << "I will be searching for " << key << " in the list!\n";
 	int x;
 	for(int i=0;i<size;++i){
 		x = rand()%2000;
@@ -352,7 +350,7 @@ void hanoigraph(){
 	plot("set xtics 0,1,40");
 	plot("set ytics 0,1000");
 	plot("plot 'hanoi.txt' smooth unique w linespoints pt 7 lc rgb '#0060ad' lw 3") ;
-	plot("set term gif rounded size 1200,1000 ");
+	plot("set term gif size 1200,1000 ");
 	plot("set output 'hanoi.gif'");
 	plot("replot");
 	plot("set term pop");
@@ -375,7 +373,7 @@ void bSearchgraph(){
 	plot("set logscale x");
 	plot("set logscale y");
 	plot("plot 'bSearch.txt' smooth unique w linespoints pt 7 lc rgb '#0060ad' lw 3") ;
-	plot("set term gif rounded size 1200,1000 ");
+	plot("set term gif size 1200,1000 ");
 	plot("set output 'bSearch.gif'");
 	plot("replot");
 	plot("set term pop");
@@ -398,7 +396,7 @@ void bubblegraph(){
 	plot("set xtics 0,200");
 	plot("set ytics 0,50");
 	plot("plot 'bubble.txt' smooth unique w linespoints pt 7 lc rgb '#0060ad' lw 3") ;
-	plot("set term gif rounded size 1200,1000 ");
+	plot("set term gif size 1200,1000 ");
 	plot("set output 'bubble.gif'");
 	plot("replot");
 	plot("set term pop");
@@ -421,7 +419,7 @@ void lineargraph(){
 	plot("set xtics 0,10000");
 	plot("set logscale y");
 	plot("plot 'linear.txt' smooth unique w linespoints pt 7 lc rgb '#0060ad' lw 3") ;
-	plot("set term gif rounded size 1200,1000 ");
+	plot("set term gif size 1200,1000 ");
 	plot("set output 'linearSearch.gif'");
 	plot("replot");
 	plot("set term pop");
@@ -444,7 +442,7 @@ void quickgraph(){
 	plot("set logscale x");
 	plot("set logscale y");
 	plot("plot 'quick.txt' smooth unique w linespoints pt 7 lc rgb '#0060ad' lw 3") ;
-	plot("set term gif rounded size 1200,1000 ");
+	plot("set term gif size 1200,1000 ");
 	plot("set output 'quickSort.gif'");
 	plot("replot");
 	plot("set term pop");
@@ -466,7 +464,7 @@ void shellgraph(){
 	plot("set ylabel \"Execution time (ms)\" font \",15\"");
 	plot("set logscale y");
 	plot("plot 'shell.txt' smooth unique w linespoints pt 7 lc rgb '#0060ad' lw 3") ;
-	plot("set term gif rounded size 1200,1000 ");
+	plot("set term gif size 1200,1000 ");
 	plot("set output 'shellSort.gif'");
 	plot("replot");
 	plot("set term pop");
@@ -490,7 +488,7 @@ void Allgraph(){
 	plot("set logscale y");
 	plot("set logscale x");
 	plot("plot 'hanoi.txt' t 'Hanoi Tower O(2^n)' smooth unique w linespoints pt 7 lw 3,'bSearch.txt' t 'Binary Search O(log n)' smooth unique w linespoints pt 7 lw 3,'bubble.txt' t 'Bubble Sort O(n^2)' smooth unique w linespoints pt 7 lw 3,'linear.txt' t 'Linear Search O(n)' smooth unique w linespoints pt 7 lw 3,'quick.txt' t 'Quick Sort O(n^2)' smooth unique w linespoints pt 7 lw 3,'shell.txt' t 'Shell Sort O(nlog n)' smooth unique w linespoints pt 7 lw 3") ;
-	plot("set term gif rounded size 1200,1000 ");
+	plot("set term gif size 1200,1000 ");
 	plot("set output 'Graphs.gif'");
 	plot("replot");
 	plot("set term pop");
