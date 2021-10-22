@@ -227,6 +227,7 @@ void menu(){
 	if(program_num==1){
 		cout <<" \033[1;35m**** HANOI TOWER **** \033[0m\n";
 		for(int i=0;i<29;++i){
+			cout << "Processing Please wait...\b\b\b...\r";
 			counter++;
 			hanoi_exe();
 		}
