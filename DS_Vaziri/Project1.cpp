@@ -220,6 +220,7 @@ void menu(){
 	if(program_num==1){
 		cout <<" \033[1;35m**** HANOI TOWER **** \033[0m\n";
 		for(int i=0;i<29;++i){
+			cout.flush();
 			cout << "Processing Please wait...\b\b\b...\r";
 			counter++;
 			hanoi_exe();
@@ -231,6 +232,7 @@ void menu(){
 	else if(program_num==2){
 		cout <<" \033[1;37m**** BINARY SEARCH **** \033[0m\n";
 		for(int i=0;i<80;i+=2){
+			cout.flush();
 			cout << "Processing Please wait...\b\b\b...\r";
 			if(i<20)
 				Search++;
@@ -248,6 +250,7 @@ void menu(){
 	else if(program_num==3){
 		cout <<" \033[1;36m**** BUBBLE SORT **** \033[0m\n";
 		for(int i=0;i<80;i+=2){
+			cout.flush();
 			cout << "Processing Please wait...\b\b\b...\r";
 			if(i<20)
 				Search++;
@@ -264,6 +267,7 @@ void menu(){
 	else if(program_num==4){
 		cout <<" \033[1;32m**** LINEAR SEARCH **** \033[0m\n";
 		for(int i=0;i<1300;i+=40){
+			cout.flush();
 			cout << "Processing Please wait...\b\b\b...\r";
 			if(i<20)
 				Search++;
@@ -281,6 +285,7 @@ void menu(){
 	else if(program_num==5){
 		cout <<" \033[1;34m**** QUICK SORT **** \033[0m\n";
 		for(int i=0;i<30000;i+=1500){
+			cout.flush();
 			cout << "Processing Please wait...\b\b\b...\r";
 			if(i<=4500)
 				Search++;
@@ -299,6 +304,7 @@ void menu(){
 	else if(program_num==6){
 		cout <<" \033[1;33m**** SHELL SORT **** \033[0m\n";
 		for(int i=0;i<300;i+=3){
+			cout.flush();
 			cout << "Processing Please wait...\b\b\b...\r";
 			if(i<15)
 				Search++;
@@ -355,7 +361,7 @@ void hanoigraph(){
 void bSearchgraph(){
 	Gnuplot plot;
 	plot("set term qt 0 size 1100,900");
-	plot("set title \"***Binary Search***\\n\\nΩ(1) | O(log n)\" font \",15\"");
+	plot("set title \"***Binary Search***\\n\\nΩ(1) | Θ(log n) | O(log n)\" font \",15\"");
 	plot("set xlabel \"Sequence Size\" font \",15\"");
 	plot("set ylabel \"Execution time (ms)\" font \",15\"");
 	plot("set xzeroaxis");
