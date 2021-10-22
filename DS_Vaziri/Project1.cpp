@@ -97,13 +97,13 @@ void swap(int & i, int& j){
 //bubble sort
 void bubble_sort(vector<int>& numbers, int size){
 		if(size==1)
-				return;
+			return;
 		else
-				for(int i=0;i<size-1;i++)
-						if(numbers[i]>numbers[i+1]){
-								swap(numbers[i],numbers[i+1]);
-								bubble_sort(numbers,size-1);
-						}
+			for(int i=0;i<size-1;i++)
+				if(numbers[i]>numbers[i+1]){
+					swap(numbers[i],numbers[i+1]);
+					bubble_sort(numbers,size-1);
+				}
 }
 void bubble_exe(){
 		vector <int>numbers;
