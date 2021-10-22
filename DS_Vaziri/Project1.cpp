@@ -221,7 +221,7 @@ void menu(){
 		cout <<" \033[1;35m**** HANOI TOWER **** \033[0m\n";
 		for(int i=0;i<29;++i){
 			cout.flush();
-			cout << "Processing Please wait...\b\b\b...\r";
+			cout << "Processing Please wait...\r";
 			counter++;
 			hanoi_exe();
 		}
@@ -233,7 +233,7 @@ void menu(){
 		cout <<" \033[1;37m**** BINARY SEARCH **** \033[0m\n";
 		for(int i=0;i<80;i+=2){
 			cout.flush();
-			cout << "Processing Please wait...\b\b\b...\r";
+			cout << "Processing Please wait...\r";
 			if(i<20)
 				Search++;
 			else if(i<30)
@@ -251,7 +251,7 @@ void menu(){
 		cout <<" \033[1;36m**** BUBBLE SORT **** \033[0m\n";
 		for(int i=0;i<80;i+=2){
 			cout.flush();
-			cout << "Processing Please wait...\b\b\b...\r";
+			cout << "Processing Please wait...\r";
 			if(i<20)
 				Search++;
 			else if(i<30)
@@ -268,7 +268,7 @@ void menu(){
 		cout <<" \033[1;32m**** LINEAR SEARCH **** \033[0m\n";
 		for(int i=0;i<1300;i+=40){
 			cout.flush();
-			cout << "Processing Please wait...\b\b\b...\r";
+			cout << "Processing Please wait...\r";
 			if(i<20)
 				Search++;
 			else if(i<180)
@@ -286,15 +286,15 @@ void menu(){
 		cout <<" \033[1;34m**** QUICK SORT **** \033[0m\n";
 		for(int i=0;i<30000;i+=1500){
 			cout.flush();
-			cout << "Processing Please wait...\b\b\b...\r";
+			cout << "Processing Please wait...\r";
 			if(i<=4500)
 				Search++;
 			else if(i<=15000)
 				Search+=50;
-			else if(i<=20000)
-				Search+=1000;
+			else if(i<=25000)
+				Search+=1500;
 			else
-				Search+=15000;
+				Search+=35000;
 			quick_exe();
 		}
 		Search=0;
@@ -305,7 +305,7 @@ void menu(){
 		cout <<" \033[1;33m**** SHELL SORT **** \033[0m\n";
 		for(int i=0;i<300;i+=3){
 			cout.flush();
-			cout << "Processing Please wait...\b\b\b...\r";
+			cout << "Processing Please wait...\r";
 			if(i<15)
 				Search++;
 			else if(i<30)
@@ -347,7 +347,7 @@ void hanoigraph(){
 	plot("set style line 1 ");
 	plot("set xtics 0,1,40");
 	plot("set ytics 0,1000");
-	plot("plot 'hanoi.txt' smooth unique w linespoints pt 7 lc rgb '#0060ad' lw 3") ;
+	plot("plot 'hanoi.txt' w linespoints pt 7 lc rgb '#0060ad' lw 3") ;
 	plot("set term gif size 1200,1000 ");
 	plot("set output 'hanoi.gif'");
 	plot("replot");
@@ -370,7 +370,7 @@ void bSearchgraph(){
 	plot("set grid");
 	plot("set logscale x");
 	plot("set logscale y");
-	plot("plot 'bSearch.txt' smooth unique w linespoints pt 7 lc rgb '#0060ad' lw 3") ;
+	plot("plot 'bSearch.txt' w linespoints pt 7 lc rgb '#0060ad' lw 3") ;
 	plot("set term gif size 1200,1000 ");
 	plot("set output 'bSearch.gif'");
 	plot("replot");
@@ -393,7 +393,7 @@ void bubblegraph(){
 	plot("set ylabel \"Execution time (ms)\" font \",15\"");
 	plot("set xtics 0,200");
 	plot("set ytics 0,50");
-	plot("plot 'bubble.txt' smooth unique w linespoints pt 7 lc rgb '#0060ad' lw 3") ;
+	plot("plot 'bubble.txt' w linespoints pt 7 lc rgb '#0060ad' lw 3") ;
 	plot("set term gif size 1200,1000 ");
 	plot("set output 'bubble.gif'");
 	plot("replot");
@@ -416,7 +416,7 @@ void lineargraph(){
 	plot("set grid");
 	plot("set xtics 0,10000");
 	plot("set logscale y");
-	plot("plot 'linear.txt' smooth unique w linespoints pt 7 lc rgb '#0060ad' lw 3") ;
+	plot("plot 'linear.txt' w linespoints pt 7 lc rgb '#0060ad' lw 3") ;
 	plot("set term gif size 1200,1000 ");
 	plot("set output 'linearSearch.gif'");
 	plot("replot");
@@ -439,7 +439,7 @@ void quickgraph(){
 	plot("set ylabel \"Execution time (ms)\" font \",15\"");
 	plot("set logscale x");
 	plot("set logscale y");
-	plot("plot 'quick.txt' smooth unique w linespoints pt 7 lc rgb '#0060ad' lw 3") ;
+	plot("plot 'quick.txt' w linespoints pt 7 lc rgb '#0060ad' lw 3") ;
 	plot("set term gif size 1200,1000 ");
 	plot("set output 'quickSort.gif'");
 	plot("replot");
@@ -461,7 +461,7 @@ void shellgraph(){
 	plot("set xlabel \"Sequence Size\" font \",15\"");
 	plot("set ylabel \"Execution time (ms)\" font \",15\"");
 	plot("set logscale y");
-	plot("plot 'shell.txt' smooth unique w linespoints pt 7 lc rgb '#0060ad' lw 3") ;
+	plot("plot 'shell.txt' w linespoints pt 7 lc rgb '#0060ad' lw 3") ;
 	plot("set term gif size 1200,1000 ");
 	plot("set output 'shellSort.gif'");
 	plot("replot");
@@ -485,7 +485,7 @@ void Allgraph(){
 	plot("set key outside bottom right ");
 	plot("set logscale y");
 	plot("set logscale x");
-	plot("plot 'hanoi.txt' t 'Hanoi Tower O(2^n)' smooth unique w linespoints pt 7 lw 3,'bSearch.txt' t 'Binary Search O(log n)' smooth unique w linespoints pt 7 lw 3,'bubble.txt' t 'Bubble Sort O(n^2)' smooth unique w linespoints pt 7 lw 3,'linear.txt' t 'Linear Search O(n)' smooth unique w linespoints pt 7 lw 3,'quick.txt' t 'Quick Sort O(n^2)' smooth unique w linespoints pt 7 lw 3,'shell.txt' t 'Shell Sort O(nlog n)' smooth unique w linespoints pt 7 lw 3") ;
+	plot("plot 'hanoi.txt' t 'Hanoi Tower O(2^n)' w linespoints pt 7 lw 3,'bSearch.txt' t 'Binary Search O(log n)' w linespoints pt 7 lw 3,'bubble.txt' t 'Bubble Sort O(n^2)' w linespoints pt 7 lw 3,'linear.txt' t 'Linear Search O(n)' w linespoints pt 7 lw 3,'quick.txt' t 'Quick Sort O(n^2)' w linespoints pt 7 lw 3,'shell.txt' t 'Shell Sort O(nlog n)' w linespoints pt 7 lw 3") ;
 	plot("set term gif size 1200,1000 ");
 	plot("set output 'Graphs.gif'");
 	plot("replot");
