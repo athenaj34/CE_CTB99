@@ -56,106 +56,102 @@ void hanoi_exe(){
 //binary search
 int bsearch(vector<int> list, int from, int to, int key)
 {
-		if (list.size() == 0)
-			return -1;
-		if (from > to)
-			return -1;
-
-		int mid = (from + to) / 2;
-		if (list[mid] == key)
-			return mid;
-		else if (list[mid] < key)
-			return bsearch(list, mid + 1, to, key);
-		else
-			return bsearch(list, from, mid - 1, key);
+	if (list.size() == 0)
+		return -1;
+	if (from > to)
+		return -1;
+	int mid = (from + to) / 2;
+	if (list[mid] == key)
+		return mid;
+	else if (list[mid] < key)
+		return bsearch(list, mid + 1, to, key);
+	else
+		return bsearch(list, from, mid - 1, key);
 }
 int binary_search(vector<int> v, int key) {
 		return bsearch(v, 0, v.size() - 1, key);
 }
 void bSearch_exe(){
-		int size = Search;
-		binFile << size << " ";
-		int key = rand()%(200)+1;
-		vector<int> list;
-		int x;
-		for(int i=0;i<size;++i){
+	int size = Search;
+	binFile << size << " ";
+	int key = rand()%(200)+1;
+	vector<int> list;
+	int x;
+	for(int i=0;i<size;++i){
 		x = rand()%(size)+1;
-			list.push_back(x);
-		}
-		sort(&list[0],&list[size-1]);
-		t = clock();
-		int idx = binary_search(list, key);
-		t = clock() - t ;
-		binFile << double(t)*1000/CLOCKS_PER_SEC << endl ;
+		list.push_back(x);
+	}
+	sort(&list[0],&list[size-1]);
+	t = clock();
+	int idx = binary_search(list, key);
+	t = clock() - t ;
+	binFile << double(t)*1000/CLOCKS_PER_SEC << endl ;
 }
 void swap(int & i, int& j){
-		int temp = i;
-		i = j;
-		j = temp;
+	int temp = i;
+	i = j;
+	j = temp;
 }
 
 //bubble sort
 void bubble_sort(vector<int>& numbers, int size){
-		if(size==1)
-			return;
-		else
-			for(int i=0;i<size-1;i++)
-				if(numbers[i]>numbers[i+1]){
-					swap(numbers[i],numbers[i+1]);
-					bubble_sort(numbers,size-1);
-				}
+	if(size==1)
+		return;
+	else
+		for(int i=0;i<size-1;i++)
+			if(numbers[i]>numbers[i+1]){
+				swap(numbers[i],numbers[i+1]);
+				bubble_sort(numbers,size-1);
+			}
 }
 void bubble_exe(){
-		vector <int>numbers;
-		int size = Search;
-		bubFile << size << " ";
-		int x;
-		for(int i=0;i<size;++i){
-			x = rand();
-			numbers.push_back(x);
-		}
-		t = clock();
-		bubble_sort(numbers,size);
-		t = clock() - t;
-		bubFile << double(t)*1000/CLOCKS_PER_SEC << endl;
+	vector <int>numbers;
+	int size = Search;
+	bubFile << size << " ";
+	int x;
+	for(int i=0;i<size;++i){
+		x = rand();
+		numbers.push_back(x);
+	}
+	t = clock();
+	bubble_sort(numbers,size);
+	t = clock() - t;
+	bubFile << double(t)*1000/CLOCKS_PER_SEC << endl;
 }
 
 //shell sort
 void shell_sort(vector<int>& numbers, int n){
-    for (int i = n/2; i > 0; i /= 2)
-    {
-        for (int j = i; j < n; j += 1)
-        {
-            int temp = numbers[i];
-            int q;           
-            for (q = j; q >= i && numbers[q - i] > temp; q -= i)
-                numbers[q] = numbers[q - i];
-            numbers[q] = temp;
-        }
-    }
+	for (int i = n/2; i > 0; i /= 2)
+		for (int j = i; j < n; j += 1){
+			int temp = numbers[i];
+			int q;
+			for (q = j; q >= i && numbers[q-i] > temp;q -= i)
+				numbers[q] = numbers[q-i];
+			numbers[q] = temp;
+		}
 }
 void shell_exe(){
-		vector <int>numbers;
-		int size = Search;
-		shellFile << size << " ";
-		int x;
-		for(int i=0;i<size;++i){
+	vector <int>numbers;
+	int size = Search;
+	shellFile << size << " ";
+	int x;
+	for(int i=0;i<size;++i){
 		x = rand()%size;
- 		numbers.push_back(x);
-		}
-		t = clock();
-		shell_sort(numbers,size);
-		t = clock() - t;
-		shellFile << double(t)*1000/CLOCKS_PER_SEC <<  endl;
+		numbers.push_back(x);
+	}
+	t = clock();
+	shell_sort(numbers,size);
+	t = clock() - t;
+	shellFile << double(t)*1000/CLOCKS_PER_SEC <<  endl;
 }
 
 //linear search
 int linearSearch(vector <int> numbers,int size, int key){
 	if(size>0){
-			if(numbers[size-1]==key)
-					return size-1;
-			else
-					return linearSearch(numbers,size-1,key);
+		if(numbers[size-1]==key)
+			return size-1;
+		else
+			return linearSearch(numbers,size-1,key);
 	}
 	else
 		return -1;
@@ -175,7 +171,6 @@ void linear_exe(){
 	t = clock() -t ;
 	linearFile << double(t)*1000/CLOCKS_PER_SEC << endl; 
 }
-
 int partition (vector<int>numbers, int first, int last)
 {
 		int pivot = numbers[last];
@@ -201,18 +196,18 @@ void quickSort(vector<int> numbers, int start, int end)
 }
 void quick_exe()
 {
-		vector<int> numbers;
-		int size = Search;
-		quickFile << size << " ";
-		int x;
-		for(int i=0;i<size;++i){
-			x = rand()%2000;
-			numbers.push_back(x);
-		}
-		t = clock();
-		quickSort(numbers, 0, size-1);
-		t = clock() -t ;
-		quickFile << double(t)*1000/CLOCKS_PER_SEC << endl;
+	vector<int> numbers;
+	int size = Search;
+	quickFile << size << " ";
+	int x;
+	for(int i=0;i<size;++i){
+		x = rand()%2000;
+		numbers.push_back(x);
+	}
+	t = clock();
+	quickSort(numbers, 0, size-1);
+	t = clock() -t ;
+	quickFile << double(t)*1000/CLOCKS_PER_SEC << endl;
 }
 
 void menu(){
@@ -295,7 +290,6 @@ void menu(){
 				Search+=1000;
 			else
 				Search+=15000;
-			
 			quick_exe();
 		}
 		Search=0;
@@ -315,8 +309,7 @@ void menu(){
 			else if(i<200)
 				Search+=10000;
 			else
-				Search+=50000;
-			
+				Search+=50000;			
 			shell_exe();
 		}
 		Search=0;
@@ -332,10 +325,9 @@ void menu(){
 		system("clear");
 		return;
 	}
-
-
 }
-//graph
+
+//graphs
 void hanoigraph(){
  	Gnuplot plot;
 	plot("set term qt 0 size 1100,900");
