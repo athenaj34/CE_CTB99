@@ -315,7 +315,7 @@ void menu(){
 			else if(i<200)
 				Search+=10000;
 			else
-				Search+=50000;			
+				Search+=50000;
 			shell_exe();
 		}
 		Search=0;
@@ -497,7 +497,7 @@ void Allgraph(){
 	menu();
 }
 int main(){
-	system("clear");	
+	system("clear");
 	menu();
 	return 0;
 }
