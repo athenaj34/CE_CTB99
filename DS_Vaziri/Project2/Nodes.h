@@ -9,7 +9,7 @@ public:
     Nodes(char Letter);
     Nodes();
     int Length(Nodes *&start);
-    void Search();
+    void Search(char letter, Nodes *&start);
     void Delete();
     void Add();
     void UPPERCASE();
