@@ -8,14 +8,14 @@ public:
     Nodes *next;
     Nodes(char Letter);
     Nodes();
-    void Length();
+    int Length(Nodes *&start);
     void Search();
     void Delete();
     void Add();
     void UPPERCASE();
     void lowercase();
-    void reversedPrint(Nodes *&start);
-    void Print(Nodes *&start);
+    void Print(Nodes *start);
+    void reversedPrint(Nodes *start);
 };
 
 
