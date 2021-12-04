@@ -9,8 +9,10 @@ Nodes::Nodes() {
 
 }
 
-void Nodes::Length() {
-
+int Nodes::Length(Nodes *&start) {
+    int l = 0
+    for(start; start!=nullptr ; start ->= start ->next && ++l)
+    return l;
 }
 
 void Nodes::Search() {
@@ -33,19 +35,17 @@ void Nodes::lowercase() {
 
 }
 
-void Nodes::Print(Nodes *&start) {
+void Nodes::Print(Nodes *start) {
     while(start != nullptr){
         cout << start -> letter;
-        start = start -> next;
-        start -> Print(start);
+        start -> Print(start -> next);
     }
 }
 
-void Nodes::reversedPrint(Nodes *&start) {
+void Nodes::reversedPrint(Nodes *start) {
     while(start != nullptr){
-//        start = start -> next;
-//        start -> reversedPrint(start);
-//        cout << start -> letter;
+        start -> reversedPrint(start -> next);
+        cout << start -> letter;
     }
 }
 

@@ -39,12 +39,13 @@ int main() {
     }
     Nodes *first = start;
     while (true) {
-        switch (int i =menu()) {
+        switch (menu()) {
             case 1: {
                 cout << "\033[1;31m*** Length of the linked list ***\033[0m\n";
-                Linkedlist.Length();
-                cout << endl;
-                sleep(2);
+                int length = Linkedlist.Length(start);
+                cout << length << endl;
+                cout << "hello" ;
+                sleep(3);
                 system("clear");
                 break;
             }
@@ -108,7 +109,11 @@ int main() {
             case 9: {
                 cout << "\033[1;36m Goodbye! \033[0m \n";
                 sleep(1);
+<<<<<<< HEAD
 		system("clear");
+=======
+                system("clear");
+>>>>>>> f847038fc4f64f64e1a95b9f38d512b818406bf3
                 return 0;
             }
             default:
