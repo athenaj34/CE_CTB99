@@ -43,9 +43,8 @@ int main() {
 			case 1: {
 				cout << "\033[1;31m*** Length of the linked list ***\033[0m\n";
 				int length = Linkedlist.Length(start);
-				cout << length << endl;
-				cout << "hello" ;
-				sleep(3);
+				cout << "Your list length is: " << length << endl;
+				sleep(2);
 				system("clear");
 				break;
 			}
