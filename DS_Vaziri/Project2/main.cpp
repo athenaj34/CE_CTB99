@@ -17,6 +17,7 @@ int menu(){
     cout <<" \033[1;91m 8) Print it in reverse order \033[0m\n";
     cout <<" \033[1;92m 9) EXIT \033[0m\n";
     cin >> M_number;
+    system("clear");
     return M_number;
 }
 int main() {
@@ -105,9 +106,9 @@ int main() {
                 break;
             }
             case 9: {
-                cout << "GoodBye! \n";
+                cout << "\033[1;36m Goodbye! \033[0m \n";
                 sleep(1);
-
+		system("clear");
                 return 0;
             }
             default:
