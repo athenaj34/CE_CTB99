@@ -33,11 +33,9 @@ int main() {
         temp->next = nullptr;
         temp->letter = element[i];
         end->next = temp;
-        cout << end->next << endl;
         end = temp;
         ++i;
     }
-    cout << end->next << endl;
     Nodes *first = start;
     while (true) {
         switch (int i =menu()) {

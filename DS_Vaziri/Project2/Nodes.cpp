@@ -43,9 +43,9 @@ void Nodes::Print(Nodes *&start) {
 
 void Nodes::reversedPrint(Nodes *&start) {
     while(start != nullptr){
-        start = start -> next;
-        start -> reversedPrint(start);
-        cout << start -> letter;
+//        start = start -> next;
+//        start -> reversedPrint(start);
+//        cout << start -> letter;
     }
 }
 
