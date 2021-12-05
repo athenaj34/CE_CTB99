@@ -56,7 +56,6 @@ void Nodes::Print(Nodes *start) {
 
 void Nodes::reversedPrint(Nodes *start) {
 	if(start -> next == nullptr) {
-		cout << start -> letter;
 		return;
 	}
 	else {
