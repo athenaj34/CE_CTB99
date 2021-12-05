@@ -11,56 +11,78 @@ Nodes:: Nodes() {
 }
 
 int Nodes::Length(Nodes *&start) {
+	Nodes *temp = start;
 	int l = 0;
-	for(start; start!=nullptr ; start = start -> next , ++l);
+	for(temp; temp!=nullptr ; temp = temp -> next , ++l);
 	return l;
 }
 
-void Nodes::Search(char letter, Nodes *&start) {
-
+int Nodes::Search(char letter, Nodes *start) {
+	Nodes *temp = start;
+	int i = 0;
+	while(temp != nullptr) {
+		if(temp -> letter == letter){
+			return i+1;
+		}
+		else	temp = temp -> next;
+		++i;
+	}
+	return -1;
 }
 
-void Nodes::Delete(char letter, Nodes *& start) {
-
+void Nodes::Delete(int index, Nodes *& start) { ///???????
+	Nodes *pre = nullptr, *link = nullptr, *temp = start;
+	int i = 0;
+	while(i<=index) {
+		if(index == 0 || (index>0 && i == index-1))		pre = temp;
+		else if(i == index)		pre = temp -> next;
+		++i;
+		temp = temp -> next;
+	}
+	pre -> next = link;
+	link = temp;
+	temp -> next = nullptr;
 }
 
 void Nodes::Add(char pre, char letter, Nodes *&start) {
-
+	Nodes *temp = start;
 }
 
 void Nodes::UPPERCASE(Nodes *&start) {
-    Nodes * temp = start;
-    for(temp; temp!=nullptr ; temp = temp -> next)
-        temp -> letter = toupper(temp -> letter);
+	Nodes * temp = start;
+	for(temp; temp!=nullptr ; temp = temp -> next)
+		temp -> letter = toupper(temp -> letter);
 
 }
 
 void Nodes::lowercase(Nodes *&start) {
-    Nodes * temp = start;
-    for(temp; temp!=nullptr ; temp = temp -> next)
-        temp -> letter = tolower(temp -> letter);
+	Nodes * temp = start;
+	for(temp; temp!=nullptr ; temp = temp -> next)
+		temp -> letter = tolower(temp -> letter);
 
 }
 
-void Nodes::Print(Nodes *start) {
-	if(start -> next == nullptr) {
-		cout << start -> letter;
+void Nodes::Print(Nodes *&start) {
+	Nodes *temp = start;
+	if(temp -> next == nullptr) {
+		cout << temp -> letter;
 		return;
 	}
 	else {
-		cout << start -> letter;
-		start->Print(start->next);
+		cout << temp -> letter;
+		temp->Print(temp->next);
 	}
-	
+
 }
 
-void Nodes::reversedPrint(Nodes *start) {
-	if(start -> next == nullptr) {
-		return;
+void Nodes::reversedPrint(Nodes *&start) { ///???????
+	Nodes *temp = start;
+	if(temp -> next == nullptr) {
+		cout << temp -> letter << endl;
 	}
 	else {
-		start->Print(start->next);
-		cout << start -> letter;
+		temp ->Print(temp -> next);
+		cout << temp -> letter;
 	}
 }
 
