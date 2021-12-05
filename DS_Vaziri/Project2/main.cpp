@@ -109,7 +109,7 @@ int main() {
 				break;
 			}
 			case 8: {
-				cout << "\033[1;91m***Print it in reverse order ***\033[0m\n";
+				cout << "\033[1;91m***Print in reverse order ***\033[0m\n";
 				Linkedlist.reversedPrint(start);
 				cout << endl;
 				sleep(2);

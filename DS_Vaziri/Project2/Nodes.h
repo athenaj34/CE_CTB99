@@ -14,8 +14,8 @@ public:
 	void Add(char pre, char letter, Nodes *&start);
 	void UPPERCASE(Nodes *&start);
 	void lowercase(Nodes *&start);
-	void Print(Nodes *&start);
-	void reversedPrint(Nodes *&start);
+	void Print(Nodes *start);
+	void reversedPrint(Nodes *start);
 };
 
 

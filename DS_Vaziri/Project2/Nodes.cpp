@@ -42,17 +42,25 @@ void Nodes::lowercase(Nodes *&start) {
 
 }
 
-void Nodes::Print(Nodes *&start) {
-	while(start != nullptr){
+void Nodes::Print(Nodes *start) {
+	if(start -> next == nullptr) {
 		cout << start -> letter;
-		start = start -> next;
-		start -> Print(start);
+		return;
 	}
+	else {
+		cout << start -> letter;
+		start->Print(start->next);
+	}
+	
 }
 
-void Nodes::reversedPrint(Nodes *&start) {
-	while(start != nullptr){
-		start -> reversedPrint(start -> next);
+void Nodes::reversedPrint(Nodes *start) {
+	if(start -> next == nullptr) {
+		cout << start -> letter;
+		return;
+	}
+	else {
+		start->Print(start->next);
 		cout << start -> letter;
 	}
 }
