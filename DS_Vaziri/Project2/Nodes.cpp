@@ -6,6 +6,10 @@ Nodes::Nodes(char Letter) {
 	next = nullptr;
 }
 
+Nodes:: Nodes() {
+
+}
+
 int Nodes::Length(Nodes *&start) {
 	int l = 0;
 	for(start; start!=nullptr ; start = start -> next , ++l);

@@ -50,7 +50,10 @@ int main() {
 			}
 			case 2: {
 				cout << "\033[1;32m*** Search for an element ***\033[0m\n";
-				Linkedlist.Search();
+				cout << "Enter the letter you want to find in the list: \n";
+				char let;
+				cin >> let;
+				Linkedlist.Search(let, start);
 				cout << endl;
 				sleep(2);
 				system("clear");
@@ -58,7 +61,10 @@ int main() {
 			}
 			case 3: {
 				cout << "\033[1;33m*** Delete an element ***\033[0m\n";
-				Linkedlist.Delete();
+				cout << "Enter the letter you want to be deleted from the list: \n";
+				char let;
+				cin >> let;
+				Linkedlist.Delete(let, start);
 				cout << endl;
 				sleep(2);
 				system("clear");
@@ -66,7 +72,12 @@ int main() {
 			}
 			case 4: {
 				cout << "\033[1;34m*** Add new element ***\033[0m\n";
-				Linkedlist.Add();
+				cout << "Enter the letter you want to be added to the list: \n";
+				char let, pre;
+				cin >> let;
+				cout << "Enter the previous letter of the added element: \n";
+				cin >> pre;
+				Linkedlist.Add(pre, let, start);
 				cout << endl;
 				sleep(2);
 				system("clear");
@@ -74,7 +85,7 @@ int main() {
 			}
 			case 5: {
 				cout << "\033[1;35m*** UPPERCASE the letters ***\033[0m\n";
-				Linkedlist.UPPERCASE();
+				Linkedlist.UPPERCASE(start);
 				cout << endl;
 				sleep(2);
 				system("clear");
@@ -82,7 +93,7 @@ int main() {
 			}
 			case 6: {
 				cout << "\033[1;36m*** lowercase the letters ***\033[0m\n";
-				Linkedlist.lowercase();
+				Linkedlist.lowercase(start);
 				cout << endl;
 				sleep(2);
 				system("clear");
