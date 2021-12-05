@@ -10,10 +10,10 @@ public:
     Nodes();
     int Length(Nodes *&start);
     void Search(char letter, Nodes *&start);
-    void Delete();
-    void Add();
-    void UPPERCASE();
-    void lowercase();
+    void Delete(char letter, Nodes *& start);
+    void Add(char pre, char letter, Nodes *&start);
+    void UPPERCASE(Nodes *&start);
+    void lowercase(Nodes *&start);
     void Print(Nodes *start);
     void reversedPrint(Nodes *start);
 };

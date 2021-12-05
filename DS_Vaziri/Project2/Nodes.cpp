@@ -15,23 +15,23 @@ int Nodes::Length(Nodes *&start) {
 	return l;
 }
 
-void Nodes::Search() {
+void Nodes::Search(char letter, Nodes *&start) {
 
 }
 
-void Nodes::Delete() {
+void Nodes::Delete(char letter, Nodes *& start) {
 
 }
 
-void Nodes::Add() {
+void Nodes::Add(char pre, char letter, Nodes *&start) {
 
 }
 
-void Nodes::UPPERCASE() {
+void Nodes::UPPERCASE(Nodes *&start) {
 
 }
 
-void Nodes::lowercase() {
+void Nodes::lowercase(Nodes *&start) {
 
 }
 
