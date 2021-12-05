@@ -7,7 +7,6 @@ public:
     char letter;
     Nodes *next;
     Nodes(char Letter);
-    Nodes();
     int Length(Nodes *&start);
     void Search(char letter, Nodes *&start);
     void Delete(char letter, Nodes *& start);
