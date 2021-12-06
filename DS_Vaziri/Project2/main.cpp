@@ -82,11 +82,12 @@ int main() {
 				cout << "Enter the letter you want to be added to the list: \n";
 				char let;
 				cin >> let;
-				cout << "Enter new element's place as a number(1-" << L << ")\n";
+				cout << "Enter new element's place as a number: (1-" << L << ")\n";
 				int position;
 				cin >> position;
 				if(position>L || position<1)	cout << "Out of range!";
 				else	Linkedlist.Add(position-1, let, start);
+				Linkedlist.Print(start);
 				cout << endl;
 				sleep(2);
 				// system("clear");

@@ -7,7 +7,9 @@ Nodes::Nodes(char Letter) {
 	next = nullptr;
 }
 
-Nodes:: Nodes() { }
+Nodes:: Nodes() {
+	next = nullptr;
+}
 
 int Nodes::Length(Nodes *&start) {
 	Nodes *temp = start;
@@ -45,14 +47,18 @@ void Nodes::Delete(int index, Nodes *& start) {
 }
 
 void Nodes::Add(int index, char letter, Nodes *&start) { ///?????????
-	if(index==0)	start = start -> next;
 	Nodes *pre = nullptr, *temp = start, new_element(letter);
 	int i = 0;
 	while(i<=index) {
-		if(i == index-1 || index==0)	pre = temp;
-		else if(i == index) {
+		if(i == index-1) {
+			pre = temp;
 			pre -> next = &new_element;
-			new_element.next = temp;
+			new_element.next=temp->next;
+		}
+		else if(index==0) {
+			pre = temp;
+			start = &new_element;
+			new_element.next = pre;
 		}
 		temp = temp -> next;
 		++i;
