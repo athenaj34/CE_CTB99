@@ -1,4 +1,5 @@
 #include "Nodes.h"
+#include <unistd.h>
 #include <iostream>
 using namespace std;
 Nodes::Nodes(char Letter) {
@@ -6,9 +7,7 @@ Nodes::Nodes(char Letter) {
 	next = nullptr;
 }
 
-Nodes:: Nodes() {
-
-}
+Nodes:: Nodes() { }
 
 int Nodes::Length(Nodes *&start) {
 	Nodes *temp = start;
@@ -39,7 +38,6 @@ void Nodes::Delete(int index, Nodes *& start) {
 		else if(i == index) {
 			pre -> next = temp -> next;
 			temp -> next = nullptr;
-			break;
 		}
 		temp = temp -> next;
 		++i;
@@ -47,13 +45,12 @@ void Nodes::Delete(int index, Nodes *& start) {
 }
 
 void Nodes::Add(int index, char letter, Nodes *&start) { ///?????????
+	if(index==0)	start = start -> next;
 	Nodes *pre = nullptr, *temp = start, new_element(letter);
-	new_element.next = nullptr;
-	int i=0;
-	if(index==0)	pre = &new_element;
-	while(i<=index){
-		if(i==index-1)	pre = temp;
-		else if(i==index && index!=0) {
+	int i = 0;
+	while(i<=index) {
+		if(i == index-1 || index==0)	pre = temp;
+		else if(i == index) {
 			pre -> next = &new_element;
 			new_element.next = temp;
 		}

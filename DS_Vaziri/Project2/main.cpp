@@ -77,14 +77,16 @@ int main() {
 				break;
 			}
 			case 4: {
+				int L=Linkedlist.Length(start);
 				cout << "\033[1;34m*** Add new element ***\033[0m\n";
 				cout << "Enter the letter you want to be added to the list: \n";
 				char let;
 				cin >> let;
-				cout << "Enter new element's place as a number(1-" << Linkedlist.Length(start) << ")\n";
+				cout << "Enter new element's place as a number(1-" << L << ")\n";
 				int position;
 				cin >> position;
-				Linkedlist.Add(position-1, let, start);
+				if(position>L || position<1)	cout << "Out of range!";
+				else	Linkedlist.Add(position-1, let, start);
 				cout << endl;
 				sleep(2);
 				// system("clear");
