@@ -86,13 +86,13 @@ void Nodes::Print(Nodes *&start) {
 	}
 }
 
-void Nodes::reversedPrint(Nodes *&start) { ///???????
+void Nodes::reversedPrint(Nodes *&start) {
 	Nodes *temp = start;
 	if(temp -> next == nullptr) {
-		cout << temp -> letter << endl;
+		cout << temp -> letter ;
 	}
 	else {
-		temp ->Print(temp -> next);
+		temp ->reversedPrint(temp -> next);
 		cout << temp -> letter;
 	}
 }
