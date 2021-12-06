@@ -11,7 +11,7 @@ public:
 	int Length(Nodes *&start);
 	int Search(char letter, Nodes *start);
 	void Delete(int index, Nodes *& start);
-	void Add(char pre, char letter, Nodes *&start);
+	void Add(int index, char letter, Nodes *&start);
 	void UPPERCASE(Nodes *&start);
 	void lowercase(Nodes *&start);
 	void Print(Nodes *&start);

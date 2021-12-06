@@ -79,11 +79,12 @@ int main() {
 			case 4: {
 				cout << "\033[1;34m*** Add new element ***\033[0m\n";
 				cout << "Enter the letter you want to be added to the list: \n";
-				char let, pre;
+				char let;
 				cin >> let;
-				cout << "Enter the previous letter of the added element: \n";
-				cin >> pre;
-				Linkedlist.Add(pre, let, start);
+				cout << "Enter new element's place as a number(1-" << Linkedlist.Length(start) << ")\n";
+				int position;
+				cin >> position;
+				Linkedlist.Add(position-1, let, start);
 				cout << endl;
 				sleep(2);
 				// system("clear");
