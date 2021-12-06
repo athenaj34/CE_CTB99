@@ -31,19 +31,21 @@ int Nodes::Search(char letter, Nodes *start) {
 }
 
 void Nodes::Delete(int index, Nodes *& start) { ///???????
+	if(index==0)	start = start -> next;
 	Nodes *pre = nullptr, *link = nullptr, *temp = start;
 	int i = 0;
 	while(i<=index) {
-		if(index == 0 || (index>0 && i == index-1))		pre = temp;
-		if(i == index) {
+		if(i == index-1 || index==0)	pre = temp;
+		else if(i == index) {
 			pre -> next = temp -> next;
+			link = temp -> next;
+			temp -> next = nullptr;
 			break;
 		}
 		temp = temp -> next;
 		++i;
 	}
-	link = pre -> next;
-	temp -> next = nullptr;
+
 }
 
 void Nodes::Add(char pre, char letter, Nodes *&start) {
