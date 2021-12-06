@@ -46,24 +46,20 @@ void Nodes::Delete(int index, Nodes *& start) {
 	}
 }
 
-void Nodes::Add(int index, char letter, Nodes *&start) {
+void Nodes::Add(int index, char letter, Nodes *&start) { ///?????????
 	Nodes *pre = nullptr, *temp = start, new_element(letter);
 	new_element.next = nullptr;
 	int i=0;
-	cout << &new_element << endl;
 	if(index==0)	pre = &new_element;
 	while(i<=index){
 		if(i==index-1)	pre = temp;
-		else if(i==index && index!=0)	pre -> next = &new_element;
-		cout << pre << " " << pre->next << " ";
-		new_element.next = temp;
-		cout << new_element.next << endl;
-		cout << i << pre->letter << endl;
+		else if(i==index && index!=0) {
+			pre -> next = &new_element;
+			new_element.next = temp;
+		}
 		temp = temp -> next;
 		++i;
 	}
-
-
 }
 
 void Nodes::UPPERCASE(Nodes *&start) {
