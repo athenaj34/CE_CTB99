@@ -30,15 +30,14 @@ int Nodes::Search(char letter, Nodes *start) {
 	return -1;
 }
 
-void Nodes::Delete(int index, Nodes *& start) { ///???????
+void Nodes::Delete(int index, Nodes *& start) {
 	if(index==0)	start = start -> next;
-	Nodes *pre = nullptr, *link = nullptr, *temp = start;
+	Nodes *pre = nullptr, *temp = start;
 	int i = 0;
 	while(i<=index) {
 		if(i == index-1 || index==0)	pre = temp;
 		else if(i == index) {
 			pre -> next = temp -> next;
-			link = temp -> next;
 			temp -> next = nullptr;
 			break;
 		}

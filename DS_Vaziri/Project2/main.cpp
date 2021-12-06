@@ -131,6 +131,7 @@ int main() {
 			}
 			default:
 				menu();
+				break;
 		}
 	}
 	return 0;
