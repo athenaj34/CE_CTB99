@@ -35,12 +35,14 @@ void Nodes::Delete(int index, Nodes *& start) { ///???????
 	int i = 0;
 	while(i<=index) {
 		if(index == 0 || (index>0 && i == index-1))		pre = temp;
-		else if(i == index)		pre = temp -> next;
-		++i;
+		if(i == index) {
+			pre -> next = temp -> next;
+			break;
+		}
 		temp = temp -> next;
+		++i;
 	}
-	pre -> next = link;
-	link = temp;
+	link = pre -> next;
 	temp -> next = nullptr;
 }
 
@@ -59,7 +61,6 @@ void Nodes::lowercase(Nodes *&start) {
 	Nodes * temp = start;
 	for(temp; temp!=nullptr ; temp = temp -> next)
 		temp -> letter = tolower(temp -> letter);
-
 }
 
 void Nodes::Print(Nodes *&start) {
@@ -72,7 +73,6 @@ void Nodes::Print(Nodes *&start) {
 		cout << temp -> letter;
 		temp->Print(temp->next);
 	}
-
 }
 
 void Nodes::reversedPrint(Nodes *&start) { ///???????

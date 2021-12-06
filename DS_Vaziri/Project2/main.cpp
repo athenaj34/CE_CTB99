@@ -39,7 +39,6 @@ int main() {
 		end = temp;
 		++i;
 	}
-	Nodes *first = start;
 	while (true) {
 		switch (menu()) {
 			case 1: {
@@ -70,7 +69,7 @@ int main() {
 				cin >> let;
 				int index = Linkedlist.Search(let,start);
 				if(index!=-1)	Linkedlist.Delete(index-1, start);
-				else	cout << let << " is not in the list!";
+				else	cout << let << " is not in the list!\n";
 				Linkedlist.Print(start);
 				cout << endl;
 				sleep(2);
