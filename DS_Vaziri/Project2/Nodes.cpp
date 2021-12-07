@@ -46,23 +46,17 @@ void Nodes::Delete(int index, Nodes *& start) {
 	}
 }
 
-void Nodes::Add(int index, char letter, Nodes *&start) { ///?????????
-	Nodes *pre = nullptr, *temp = start, new_element(letter);
-	int i = 0;
-	while(i<=index) {
-		if(i == index-1) {
+void Nodes::Add(int index, Nodes *&start, Nodes *new_element) {
+	Nodes *pre = nullptr, *temp = start;
+	if(index==1)	start = new_element;
+		else{
+		for(int i=2; i<= index; ++i){
 			pre = temp;
-			pre -> next = &new_element;
-			new_element.next = temp -> next;
+			temp = temp -> next;
 		}
-		else if(index==0) {
-			pre = temp;
-			start = &new_element;
-			new_element.next = pre;
-		}
-		temp = temp -> next;
-		++i;
+		pre -> next = new_element;
 	}
+	new_element->next = temp;
 }
 
 void Nodes::UPPERCASE(Nodes *&start) {
@@ -79,20 +73,12 @@ void Nodes::lowercase(Nodes *&start) {
 
 void Nodes::Print(Nodes *&start) {
 	Nodes *temp = start;
-	if(temp -> next == nullptr)		cout << temp -> letter;
-	else {
-		cout << temp -> letter;
-		temp -> Print(temp -> next);
-	}
+	cout << temp -> letter;
+	if(temp -> next != nullptr)		temp -> Print(temp -> next);
 }
 
 void Nodes::reversedPrint(Nodes *&start) {
 	Nodes *temp = start;
-	if(temp -> next == nullptr) {
-		cout << temp -> letter ;
-	}
-	else {
-		temp -> reversedPrint(temp -> next);
-		cout << temp -> letter;
-	}
+	if(temp -> next != nullptr)		temp -> reversedPrint(temp -> next);
+	cout << temp->letter ;
 }

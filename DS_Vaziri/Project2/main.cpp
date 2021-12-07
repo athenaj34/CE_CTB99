@@ -4,7 +4,7 @@
 using namespace std;
 int menu(){
 	int M_number = 0;
-	// system("clear");
+	system("clear");
 	cout << "Here is a list of what you are able to do:\n";
 	cout << "Enter a number: (1-9)\n";
 	cout <<" \033[1;31m 1) Length of the linked list \033[0m\n";
@@ -17,7 +17,7 @@ int menu(){
 	cout <<" \033[1;91m 8) Print in reverse order \033[0m\n";
 	cout <<" \033[1;92m 9) EXIT \033[0m\n";
 	cin >> M_number;
-	// system("clear");
+	system("clear");
 	return M_number;
 }
 int main() {
@@ -34,11 +34,10 @@ int main() {
 		temp -> next = nullptr;
 		temp -> letter = element[i];
 		end -> next = temp;
-		if(i==1)	cout << start << endl;
-		cout << temp << endl;
 		end = temp;
 		++i;
 	}
+	sleep(2);
 	while (true) {
 		switch (menu()) {
 			case 1: {
@@ -46,7 +45,7 @@ int main() {
 				int length = Linkedlist.Length(start);
 				cout << "Your list's length is: " << length << endl;
 				sleep(2);
-				// system("clear");
+				system("clear");
 				break;
 			}
 			case 2: {
@@ -59,7 +58,7 @@ int main() {
 				else	cout << "NOT FOUND!";
 				cout << endl;
 				sleep(2);
-				// system("clear");
+				system("clear");
 				break;
 			}
 			case 3: {
@@ -73,11 +72,11 @@ int main() {
 				Linkedlist.Print(start);
 				cout << endl;
 				sleep(2);
-				// system("clear");
+				system("clear");
 				break;
 			}
 			case 4: {
-				int L=Linkedlist.Length(start);
+				int L=Linkedlist.Length(start)+1;
 				cout << "\033[1;34m*** Add new element ***\033[0m\n";
 				cout << "Enter the letter you want to be added to the list: \n";
 				char let;
@@ -85,12 +84,15 @@ int main() {
 				cout << "Enter new element's place as a number: (1-" << L << ")\n";
 				int position;
 				cin >> position;
+				Nodes *new_element;
+				new_element = new (Nodes);
+				new_element -> letter=let;
 				if(position>L || position<1)	cout << "Out of range!";
-				else	Linkedlist.Add(position-1, let, start);
+				else	Linkedlist.Add(position, start,new_element);
 				Linkedlist.Print(start);
 				cout << endl;
 				sleep(2);
-				// system("clear");
+				system("clear");
 				break;
 			}
 			case 5: {
@@ -99,7 +101,7 @@ int main() {
 				Linkedlist.Print(start);
 				cout << endl;
 				sleep(2);
-				// system("clear");
+				system("clear");
 				break;
 			}
 			case 6: {
@@ -108,7 +110,7 @@ int main() {
 				Linkedlist.Print(start);
 				cout << endl;
 				sleep(2);
-				// system("clear");
+				system("clear");
 				break;
 			}
 			case 7: {
@@ -116,7 +118,7 @@ int main() {
 				Linkedlist.Print(start);
 				cout << endl;
 				sleep(2);
-				// system("clear");
+				system("clear");
 				break;
 			}
 			case 8: {
@@ -124,13 +126,13 @@ int main() {
 				Linkedlist.reversedPrint(start);
 				cout << endl;
 				sleep(2);
-				// system("clear");
+				system("clear");
 				break;
 			}
 			case 9: {
 				cout << "\033[1;36m Goodbye! \033[0m \n";
 				sleep(1);
-				// system("clear");
+				system("clear");
 				return 0;
 			}
 			default:
