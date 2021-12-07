@@ -40,6 +40,7 @@ void Nodes::Delete(int index, Nodes *& start) {
 		else if(i == index) {
 			pre -> next = temp -> next;
 			temp -> next = nullptr;
+			temp->~Nodes();
 		}
 		temp = temp -> next;
 		++i;
@@ -56,7 +57,7 @@ void Nodes::Add(int index, Nodes *&start, Nodes *new_element) {
 		}
 		pre -> next = new_element;
 	}
-	new_element->next = temp;
+	new_element -> next = temp;
 }
 
 void Nodes::UPPERCASE(Nodes *&start) {
