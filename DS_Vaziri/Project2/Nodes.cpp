@@ -53,7 +53,7 @@ void Nodes::Add(int index, char letter, Nodes *&start) { ///?????????
 		if(i == index-1) {
 			pre = temp;
 			pre -> next = &new_element;
-			new_element.next=temp->next;
+			new_element.next = temp -> next;
 		}
 		else if(index==0) {
 			pre = temp;
@@ -67,25 +67,22 @@ void Nodes::Add(int index, char letter, Nodes *&start) { ///?????????
 
 void Nodes::UPPERCASE(Nodes *&start) {
 	Nodes * temp = start;
-	for(temp; temp!=nullptr ; temp = temp -> next)
+	for(temp; temp != nullptr; temp = temp -> next)
 		temp -> letter = toupper(temp -> letter);
 }
 
 void Nodes::lowercase(Nodes *&start) {
 	Nodes * temp = start;
-	for(temp; temp!=nullptr ; temp = temp -> next)
+	for(temp; temp != nullptr; temp = temp -> next)
 		temp -> letter = tolower(temp -> letter);
 }
 
 void Nodes::Print(Nodes *&start) {
 	Nodes *temp = start;
-	if(temp -> next == nullptr) {
-		cout << temp -> letter;
-		return;
-	}
+	if(temp -> next == nullptr)		cout << temp -> letter;
 	else {
 		cout << temp -> letter;
-		temp->Print(temp->next);
+		temp -> Print(temp -> next);
 	}
 }
 
@@ -95,9 +92,7 @@ void Nodes::reversedPrint(Nodes *&start) {
 		cout << temp -> letter ;
 	}
 	else {
-		temp ->reversedPrint(temp -> next);
+		temp -> reversedPrint(temp -> next);
 		cout << temp -> letter;
 	}
 }
-
-
