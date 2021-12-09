@@ -1,27 +1,7 @@
 #include <iostream>
 #include <unistd.h>
 #include "Nodes.h"
-#include <fstream>
-#include "gnuplot.h"
 using namespace std;
-int counter = 0;
-void show(){
-	counter++;
-	Gnuplot plot;
-	plot("set term qt 0 size 1100,900");
-	plot("set title \"***Linked list***\\n\\n\" font \",15\"");
-	plot("unset xtics");
-	plot("unset ytics");
-	plot("plot 'LinkedList.txt' lc rgb '#0060ad'") ;
-	plot("set style textbox opaque margins 6,1.5 fc \"grey75\" border lc black");
-	plot("set term gif size 1200,1000 ");
-	plot("set output 'LinkedList"+to_string(counter)+".gif'");
-	plot("set term pop");
-	usleep(5);
-	cout << "Press any key to continue\n";
-	cin.get();
-	cin.get();
-}
 int menu(){
 	int M_number = 0;
 	system("clear");
@@ -41,20 +21,18 @@ int menu(){
 	return M_number;
 }
 int main() {
-	ofstream list("LinkedList.txt");
 	cout << "Enter the elements of linked list and then press ENTER:\n";
-	string elements;
-	list << elements;
-	getline(cin, elements);
+	string element;
+	getline(cin, element);
 	Nodes *start, *end, *temp;
-	Nodes Linkedlist(elements[0]);
+	Nodes Linkedlist(element[0]);
 	start = &Linkedlist;
 	end = start;
 	int i = 1;
-	while (i < elements.size()) {
+	while (i < element.size()) {
 		temp = new (Nodes);
 		temp -> next = nullptr;
-		temp -> letter = elements[i];
+		temp -> letter = element[i];
 		end -> next = temp;
 		end = temp;
 		++i;
@@ -138,10 +116,8 @@ int main() {
 			case 7: {
 				cout << "\033[1;37m*** Print ***\033[0m\n";
 				Linkedlist.Print(start);
-				show();
 				cout << endl;
 				sleep(2);
-
 				system("clear");
 				break;
 			}
