@@ -1,4 +1,4 @@
-#include "CTurtle.hpp"
+// #include "CTurtle.hpp"
 #include <iostream>
 #include <unistd.h>
 #include "Nodes.h"
@@ -55,7 +55,13 @@ int main() {
 				char let;
 				cin >> let;
 				int f = Linkedlist.Search(let, start);
-				if(f!=-1)	cout << let << " was first appeared in " << f << "th place";
+				if(f!=-1) {
+					cout << let << " was first appeared in " ;
+					if(f==1)	cout << f << "st place";
+					else if(f==2)	cout << f << "nd place";
+					else if(f==3)	cout << f << "rd place";
+					else	cout << f << "th place";
+				}
 				else	cout << "NOT FOUND!";
 				cout << endl;
 				sleep(2);
