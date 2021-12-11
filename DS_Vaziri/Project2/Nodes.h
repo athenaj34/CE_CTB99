@@ -3,9 +3,10 @@
 
 
 class Nodes {
-public:
+private:
 	char letter;
 	Nodes *next;
+public:
 	Nodes();
 	Nodes(char Letter);
 	int Length(Nodes *&start);
@@ -16,6 +17,10 @@ public:
 	void lowercase(Nodes *&start);
 	void Print(Nodes *&start);
 	void reversedPrint(Nodes *&start);
+	char return_let();
+	Nodes* return_next();
+	void fill_let(char letter);
+	void fill_next(Nodes* next);
 };
 
 

@@ -83,3 +83,19 @@ void Nodes::reversedPrint(Nodes *&start) {
 	if(temp -> next != nullptr)		temp -> reversedPrint(temp -> next);
 	cout << temp->letter ;
 }
+
+char Nodes::return_let() {
+	return this->letter;
+}
+
+Nodes* Nodes::return_next() {
+	return this->next;
+}
+
+void Nodes::fill_let(char letter) {
+	this -> letter = letter;
+}
+
+void Nodes::fill_next(Nodes* next) {
+	this -> next = next;
+}

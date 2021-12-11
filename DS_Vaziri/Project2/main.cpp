@@ -1,3 +1,4 @@
+// #include "CTurtle.hpp"
 #include <iostream>
 #include <unistd.h>
 #include "Nodes.h"
@@ -31,9 +32,9 @@ int main() {
 	int i = 1;
 	while (i < element.size()) {
 		temp = new (Nodes);
-		temp -> next = nullptr;
-		temp -> letter = element[i];
-		end -> next = temp;
+		temp -> fill_next(nullptr);
+		temp -> fill_let(element[i]);
+		end -> fill_next(temp);
 		end = temp;
 		++i;
 	}
@@ -86,7 +87,7 @@ int main() {
 				cin >> position;
 				Nodes *new_element;
 				new_element = new (Nodes);
-				new_element -> letter=let;
+				new_element -> fill_let(let);
 				if(position>L || position<1)	cout << "Out of range!";
 				else	Linkedlist.Add(position, start,new_element);
 				Linkedlist.Print(start);
