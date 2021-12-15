@@ -37,13 +37,13 @@ int main() {
 		end = temp;
 		++i;
 	}
-	sleep(2);
 	while (true) {
 		switch (menu()) {
 			case 1: {
 				cout << "\033[1;31m*** Length of the linked list ***\033[0m\n";
 				int length = Linkedlist.Length(start);
 				cout << "Your list's length is: " << length << endl;
+				cout << "\033[7;31mREDIRECTING TO MENU\033[0m\n";
 				sleep(2);
 				system("clear");
 				break;
@@ -63,6 +63,7 @@ int main() {
 				}
 				else	cout << "NOT FOUND!";
 				cout << endl;
+				cout << "\033[7;32mREDIRECTING TO MENU\033[0m\n";
 				sleep(2);
 				system("clear");
 				break;
@@ -73,10 +74,13 @@ int main() {
 				char let;
 				cin >> let;
 				int index = Linkedlist.Search(let,start);
-				if(index!=-1)	Linkedlist.Delete(index-1, start);
+				if(index!=-1) {
+					Linkedlist.Delete(index-1, start);
+					Linkedlist.Print(start);
+				}
 				else	cout << let << " is not in the list!\n";
-				Linkedlist.Print(start);
 				cout << endl;
+				cout << "\033[7;33mREDIRECTING TO MENU\033[0m\n";
 				sleep(2);
 				system("clear");
 				break;
@@ -97,6 +101,7 @@ int main() {
 				else	Linkedlist.Add(position, start,new_element);
 				Linkedlist.Print(start);
 				cout << endl;
+				cout << "\033[7;34mREDIRECTING TO MENU\033[0m\n";
 				sleep(2);
 				system("clear");
 				break;
@@ -106,6 +111,7 @@ int main() {
 				Linkedlist.UPPERCASE(start);
 				Linkedlist.Print(start);
 				cout << endl;
+				cout << "\033[7;35mREDIRECTING TO MENU\033[0m\n";
 				sleep(2);
 				system("clear");
 				break;
@@ -115,6 +121,7 @@ int main() {
 				Linkedlist.lowercase(start);
 				Linkedlist.Print(start);
 				cout << endl;
+				cout << "\033[7;36mREDIRECTING TO MENU\033[0m\n";
 				sleep(2);
 				system("clear");
 				break;
@@ -123,6 +130,7 @@ int main() {
 				cout << "\033[1;37m*** Print ***\033[0m\n";
 				Linkedlist.Print(start);
 				cout << endl;
+				cout << "\033[7;37mREDIRECTING TO MENU\033[0m\n";
 				sleep(2);
 				system("clear");
 				break;
@@ -131,6 +139,7 @@ int main() {
 				cout << "\033[1;91m***Print in reverse order ***\033[0m\n";
 				Linkedlist.reversedPrint(start);
 				cout << endl;
+				cout << "\033[7;91mREDIRECTING TO MENU\033[0m\n";
 				sleep(2);
 				system("clear");
 				break;
