@@ -1,6 +1,6 @@
 #include <iostream>
 #include <unistd.h>
-#include "Nodes.h"
+#include "Node.h"
 using namespace std;
 int menu(){
 	int M_number = 0;
@@ -24,13 +24,13 @@ int main() {
 	cout << "Enter the elements of linked list and then press ENTER:\n";
 	string element;
 	getline(cin, element);
-	Nodes *start, *end, *temp;
-	Nodes Linkedlist(element[0]);
+	Node *start, *end, *temp;
+	Node Linkedlist(element[0]);
 	start = &Linkedlist;
 	end = start;
 	int i = 1;
 	while (i < element.size()) {
-		temp = new (Nodes);
+		temp = new (Node);
 		temp -> fill_next(nullptr);
 		temp -> fill_let(element[i]);
 		end -> fill_next(temp);
@@ -90,8 +90,8 @@ int main() {
 				cout << "Enter new element's place as a number: (1-" << L << ")\n";
 				int position;
 				cin >> position;
-				Nodes *new_element;
-				new_element = new (Nodes);
+				Node *new_element;
+				new_element = new (Node);
 				new_element -> fill_let(let);
 				if(position>L || position<1)	cout << "Out of range!";
 				else	Linkedlist.Add(position, start,new_element);
