@@ -123,7 +123,6 @@ int main() {
 				cout << "\033[1;37m*** Print ***\033[0m\n";
 				Linkedlist.Print(start);
 				cout << endl;
-				show(Linkedlist,start);
 				sleep(2);
 				system("clear");
 				break;
