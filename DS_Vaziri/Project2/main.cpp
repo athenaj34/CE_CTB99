@@ -1,7 +1,12 @@
+<<<<<<< HEAD
+=======
+#include "CTurtle.hpp"
+>>>>>>> graphics
 #include <iostream>
 #include <unistd.h>
 #include "Nodes.h"
 using namespace std;
+void show(Nodes list, Nodes*& start);
 int menu(){
 	int M_number = 0;
 	system("clear");
@@ -123,6 +128,7 @@ int main() {
 				cout << "\033[1;37m*** Print ***\033[0m\n";
 				Linkedlist.Print(start);
 				cout << endl;
+				show(Linkedlist,start);
 				sleep(2);
 				system("clear");
 				break;
@@ -147,4 +153,8 @@ int main() {
 		}
 	}
 	return 0;
+}
+void show(Nodes list, Nodes* &start) {
+	int length = list.Length(start);
+
 }
