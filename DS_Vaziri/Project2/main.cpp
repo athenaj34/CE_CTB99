@@ -1,9 +1,7 @@
 #include <iostream>
 #include <unistd.h>
 #include "Node.h"
-#include <graphics.h>
 using namespace std;
-void show(Node list, Node *&start);
 int menu(){
 	int M_number = 0;
 	system("clear");
@@ -133,7 +131,6 @@ int main() {
 				Linkedlist.Print(start);
 				cout << endl;
 				cout << "\033[7;37mREDIRECTING TO MENU\033[0m\n";
-				show(Linkedlist,start);
 				sleep(2);
 				system("clear");
 				break;
@@ -159,14 +156,4 @@ int main() {
 		}
 	}
 	return 0;
-}
-void show(Node list,Node *&start) {
-	int gd = DETECT, gm;
-	
-	initgraph(&gd, &gm, NULL);
-	rectangle(50, 20, 0, 60);
-	cin.get();
-	cout << "press any key to continue\n";
-	cin.get();
-	closegraph();
 }
