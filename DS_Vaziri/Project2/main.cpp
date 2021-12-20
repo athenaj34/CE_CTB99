@@ -1,6 +1,6 @@
 #include <iostream>
 #include <unistd.h>
-#include "Node.h"
+#include "Node.hpp"
 using namespace std;
 int menu(){
 	int M_number = 0;

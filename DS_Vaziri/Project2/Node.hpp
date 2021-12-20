@@ -1,5 +1,5 @@
-#ifndef PROJECT2_Node_H
-#define PROJECT2_Node_H
+#ifndef PROJECT2_Node_HPP
+#define PROJECT2_Node_HPP
 
 
 class Node {
@@ -24,4 +24,4 @@ public:
 };
 
 
-#endif //PROJECT2_Node_H
+#endif //PROJECT2_Node_HPP
