@@ -58,8 +58,7 @@ int reachable(int maze[N][M]) {
 	return false;
 }
 
-int main()
-{
+int main() {
 	memset(visited, true, sizeof(visited));
 	int maze[N][M];
 	srand(time(NULL));
@@ -84,7 +83,7 @@ int main()
 		cout << endl;
 	}
 
-	if(maze[0][0]==true){
+	if(maze[0][0]==true) {
 		if (reachable(maze)) 		cout << "Found!" << '\n';
 		else 	cout << "Nothing was Found!" << '\n';
 	}
