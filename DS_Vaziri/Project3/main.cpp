@@ -68,7 +68,7 @@ int main()
 			maze[i][j]=rand()%2;
 
 	cout << "\033[1;37;41m!! 1 is available node and 0 is unavailable node !!\033[0m\n";
-	while(dx==0 || dy==0) {
+	while((dx==0 && dy==0) || maze[dx][dy]==0) {
 		dx = rand()%4;
 		dy = rand()%5;
 	}
