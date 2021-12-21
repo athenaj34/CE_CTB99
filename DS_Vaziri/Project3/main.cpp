@@ -1,15 +1,15 @@
 #include <iostream>
 #include "Node.hpp"
 #include <stack>
+#include <ctime>
+#include <unistd.h>
 #include <cstring>
 using namespace std;
-
-#define N 4
 #define M 5
-int n = N, m = M, fx, fy;
+#define N 4
+int n = N, m = M, dx=0, dy=0;
 bool visited[N][M];
-
-bool isReachable(int maze[N][M]) {
+int isReachable(int maze[N][M]) {
 	int i = 0, j = 0;
 	stack<Node> path;
 	Node temp(i, j);
@@ -21,7 +21,7 @@ bool isReachable(int maze[N][M]) {
 		temp.dir_incre();
 		path.pop();
 		path.push(temp);
-		if (i == fx && j == fy)	return true;
+		if (i ==dx && j == dy)		return true;
 		if (d == 0) {
 			if (i - 1 >= 0 && maze[i - 1][j] && visited[i - 1][j]) {
 				Node temp1(i - 1, j);
@@ -61,18 +61,35 @@ bool isReachable(int maze[N][M]) {
 int main()
 {
 	memset(visited, true, sizeof(visited));
-	int maze[N][M] = {
-		{ 1, 0, 1, 1, 0 },
-		{ 1, 1, 1, 0, 1 },
-		{ 0, 1, 0, 1, 1 },
-		{ 1, 1, 1, 1, 1 }
-	};
+	int maze[N][M];
+	srand(time(NULL));
+	for(int i=0;i<N;i++)
+		for(int j=0;j<M;j++)
+			maze[i][j]=rand()%2;
 
-	fx = 2;
-	fy = 3;
+	cout << "\033[1;37;41m!! 1 is available node and 0 is unavailable node !!\033[0m\n";
+	while(dx==0 || dy==0) {
+		dx = rand()%4;
+		dy = rand()%5;
+	}
+	cout << "destination is set on (" << dx << ", " << dy << ")\n";
+	cout << "start point is set to green and end point is set to pink\n";
+	for(int i=0;i<N;i++) {
+		for(int j=0;j<M;j++) {
+			if(i==0 && j==0 && maze[0][0]!=0)	cout << "\033[1;30;42m" << maze[0][0] << "\033[0m ";
+			else if(i==0 && j==0 && maze[0][0]==0)	cout << "\033[1;37;41m" << maze[0][0] << "\033[0m ";
+			else if(i==dx && j==dy)		cout << "\033[1;30;45m" << maze[dx][dy] << "\033[0m ";
+			else	cout << maze[i][j] << " ";
+		}
+		cout << endl;
+	}
 
-	if (isReachable(maze)) 		cout << "Path Found!" << '\n';
-	else 	cout << "No Path Found!" << '\n';
-
+	if(maze[0][0]==true){
+		if (isReachable(maze)) 		cout << "Found!" << '\n';
+		else 	cout << "Nothing was Found!" << '\n';
+	}
+	else	cout << "\033[1;37;41mEntrance node is unavailable\nrat is not in the maze!\033[0m\n";
+	sleep(5);
+	system("clear");
 	return 0;
 }
