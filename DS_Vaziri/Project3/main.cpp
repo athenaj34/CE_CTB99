@@ -9,7 +9,7 @@ using namespace std;
 #define N 4
 int n = N, m = M, dx=0, dy=0;
 bool visited[N][M];
-int isReachable(int maze[N][M]) {
+int reachable(int maze[N][M]) {
 	int i = 0, j = 0;
 	stack<Node> path;
 	Node temp(i, j);
@@ -21,7 +21,7 @@ int isReachable(int maze[N][M]) {
 		temp.dir_incre();
 		path.pop();
 		path.push(temp);
-		if (i ==dx && j == dy)		return true;
+		if (i ==dx && j == dy)	return true;
 		if (d == 0) {
 			if (i - 1 >= 0 && maze[i - 1][j] && visited[i - 1][j]) {
 				Node temp1(i - 1, j);
@@ -85,7 +85,7 @@ int main()
 	}
 
 	if(maze[0][0]==true){
-		if (isReachable(maze)) 		cout << "Found!" << '\n';
+		if (reachable(maze)) 		cout << "Found!" << '\n';
 		else 	cout << "Nothing was Found!" << '\n';
 	}
 	else	cout << "\033[1;37;41mEntrance node is unavailable\nrat is not in the maze!\033[0m\n";
