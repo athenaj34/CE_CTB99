@@ -5,8 +5,8 @@
 #include <unistd.h>
 #include <cstring>
 using namespace std;
-#define M 5
-#define N 4
+#define M 6
+#define N 6
 int n = N, m = M, dx=0, dy=0;
 bool visited[N][M];
 int reachable(int maze[N][M]) {
@@ -58,22 +58,14 @@ int reachable(int maze[N][M]) {
 	return false;
 }
 
-int main() {
-	memset(visited, true, sizeof(visited));
-	int maze[N][M];
-	srand(time(NULL));
-	for(int i=0;i<N;i++)
-		for(int j=0;j<M;j++)
-			maze[i][j]=rand()%2;
+void release_rat() {
 
-	cout << "\033[1;37;41m!! 1 is available node and 0 is unavailable node !!\033[0m\n";
-	while((dx==0 && dy==0) || maze[dx][dy]==0) {
-		dx = rand()%4;
-		dy = rand()%5;
-	}
-	cout << "destination is set on (" << dx << ", " << dy << ")\n";
-	cout << "start point is set to green and end point is set to pink\n";
+}
+
+void print_maze(int maze[N][M]) {
+		cout << endl;
 	for(int i=0;i<N;i++) {
+		cout << "\t\t\t";
 		for(int j=0;j<M;j++) {
 			if(i==0 && j==0 && maze[0][0]!=0)	cout << "\033[1;30;42m" << maze[0][0] << "\033[0m ";
 			else if(i==0 && j==0 && maze[0][0]==0)	cout << "\033[1;37;41m" << maze[0][0] << "\033[0m ";
@@ -82,13 +74,43 @@ int main() {
 		}
 		cout << endl;
 	}
+	cout << endl;
+}
 
-	if(maze[0][0]==true) {
-		if (reachable(maze)) 		cout << "Found!" << '\n';
-		else 	cout << "Nothing was Found!" << '\n';
+void fill_maze(int maze[N][M]) {
+	for(int i=0;i<N;i++)
+		for(int j=0;j<M;j++) {
+			maze[i][j]=rand()%2;
+			while (maze[0][0]==0)	maze[0][0]=rand()%2;
+		}
+}
+
+void set_destination(int maze [N][M]) {
+	while((dx==0 && dy==0) || maze[dx][dy]==0) {
+		dx = rand()%6;
+		dy = rand()%6;
 	}
-	else	cout << "\033[1;37;41mEntrance node is unavailable\nrat is not in the maze!\033[0m\n";
-	sleep(5);
+	cout << "destination is set on (" << dx << ", " << dy << ")\n";
+}
+int main() {
+	memset(visited, true, sizeof(visited));
+	int maze[N][M];
+	srand(time(NULL));
+	fill_maze(maze);
+	cout << "\033[1;31m!!!\033[0m \033[7m1 is available node and 0 is unavailable node\033[0m \033[1;31m!!!\033[0m\n";
+	set_destination(maze);
+	cout << "start point is set to \033[1;32mgreen\033[0m and end point is set to \033[1;35mpink\033[0m\n";
+	sleep(3);
 	system("clear");
+	cout << "Maze will be printed below:\n";
+	sleep(2);
+	system("clear");
+	print_maze(maze);
+		if (reachable(maze)) 		cout << "\t\t\t\t\b\b\b\033[1;32mFound! :)\033[0m" << '\n';
+		else	cout << "\t\t\t\033[1;35mNothing was Found! :(\033[0m" << '\n';
+		sleep(5);
+		system("clear");
+	
 	return 0;
 }
+
