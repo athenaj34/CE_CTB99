@@ -58,10 +58,6 @@ int reachable(int maze[N][M]) {
 	return false;
 }
 
-void release_rat() {
-
-}
-
 void print_maze(int maze[N][M]) {
 		cout << endl;
 	for(int i=0;i<N;i++) {
@@ -113,4 +109,3 @@ int main() {
 	
 	return 0;
 }
-
